@@ -1,0 +1,108 @@
+@import '../../scss/_Import.scss';
+
+.expandable-container {
+  position: relative;
+
+  input[type='checkbox'] {
+    opacity: 0;
+    position: absolute;
+  }
+}
+.expandable-lbl-toggle {
+  cursor: pointer;
+  background-color: #fff;
+  outline: none;
+  border: 0;
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  padding: $item-padding;
+
+  .label-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover {
+    background-color: #e6e6e6;
+  }
+
+  // For accessibility debug
+  // &:focus {
+  //   background-color: #e6e6e6;
+  // }
+}
+
+.expandable-lbl-toggle.expanded {
+  background-color: #e6e6e6;
+
+  span.expandable-icon{
+    &:after {
+      transform: rotate(180deg);
+    }
+    &:before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.expandable-icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: .8rem;
+  height: .8rem;
+  position: relative;
+
+  &:before,
+  &:after{
+    background: #4d4d4d;
+    content: '';
+    height: .2rem;
+    right: 0;
+    position: absolute;
+    width: .8rem;
+    transition: transform .2s ease-in-out;
+  }
+  &:after {
+    transform-origin: center;
+    transform: rotate(90deg)
+  }
+}
+
+.expandable-icon:first-child {
+  margin-right: $item-padding-lr + 0rem;
+}
+
+.expandable-icon:last-child {
+  margin-left: $item-padding-lr + 0rem;
+}
+
+.expandable-content {
+  transition: max-height .3s ease-in-out;
+  overflow: hidden;
+  padding: 0;
+  padding-left: $item-padding-lr + 0rem;
+  padding-right: $item-padding-lr + 0rem;
+  background-color: #fff;
+
+  &:before {
+    margin-top: $item-padding-tb + 0rem;
+    content: '';
+    display: block;
+  }
+  &:after {
+    margin-bottom: $item-padding-tb + 0rem;
+    content: '';
+    display: block;
+  }
+}
+
+.expandable-content.expanded {
+  overflow: auto;
+}
+
+.expandable-content.collapsed,
+.expandable-overlay.collapsed {
+  max-height: 0;
+}

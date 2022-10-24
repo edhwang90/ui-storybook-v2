@@ -1,0 +1,230 @@
+@import './_Import.scss';
+
+// Clear Base
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size;
+}
+
+body, div,
+h1, h2, h3, h4, h5, h6,
+label, p,
+ul, ol, 
+a, button, input, textarea, pre {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', 'Open sans', sans-serif;
+  color: $font-color;
+  font-size: 1rem;
+  line-height: $line-height;
+  outline: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+// Grid
+.row {
+  display: flex;
+  flex: 0;
+}
+
+.col {
+  flex: 1;
+  flex-direction: column;
+  margin-right: $container-padding-lr + 0rem;
+  width: 100%; // necessary for overflow
+
+  &:last-of-type {
+    margin-right: 0rem;
+
+  }
+}
+
+.col-min {
+  flex-grow: 0;
+  flex-shrink: 0;
+  // flex-basis: (width) rem/em; for fixed
+}
+
+.col-reverse {
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+@media (max-width: 520px) {
+  .row {
+    display: block;
+  }
+
+  .col {
+    margin-right: 0rem;
+    margin-bottom: $container-padding-tb + 0rem;
+
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+// Lists
+.ul-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $item-padding-tb + 0rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  li:before {
+    content: '';
+    display: flex;
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    background-color: #4d4d4d;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    margin-right: $item-padding-lr + 0rem;
+    margin-top: calc(1em/7);
+  }
+}
+
+// Modal
+ .modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0,0,0, .7);
+  transition: opacity .25s ease;
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal:target, .modal-state:checked + .modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: $item-padding;
+  border-radius: 2px;
+}
+
+// Spacing
+.margin-0 {
+  margin: 0 !important;
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+// Centering
+.vhc-parent,
+.vc-parent {
+  position: relative;
+}
+
+.vhc-div,
+.vc-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.vc-div {
+  left: auto;
+  transform: translateY(-50%);
+}
+
+.hc-div {
+  margin: 0 auto;
+  width: 50%;
+}
+
+// Modifiers
+.to-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.to-col {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.circular {
+  border-radius: 50% !important;
+}
+
+.flex-center {
+  align-items: center !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+ }
+
+//Animations
+.to-spin {
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+.fade {
+  transition: opacity .15s linear;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

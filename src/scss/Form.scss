@@ -1,0 +1,199 @@
+@import './_Import.scss';
+
+input, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.form-input {
+  padding: $item-padding;
+  font-family: 'Lato', 'Open sans', sans-serif;
+  font-size: 1rem;
+  border: .0626rem solid #e6e6e6;
+  border-radius: .25rem;
+  display: flex;
+  flex: 1;
+  width: 100%;
+  transition: 
+    border-color ease-in-out .2s,
+    box-shadow ease-in-out .2s;
+  outline: none;
+
+  &:hover {
+    border-color: darken(#e6e6e6, 10%);
+  }
+
+  &:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+
+  &:disabled {
+    background-color: #f7f7f7;
+    cursor: not-allowed;
+    opacity: 1; // required for iOS
+  }
+}
+
+.form-label {
+  display: block;
+  padding-bottom: $item-padding-tb + 0rem;
+  font-weight: bold;
+}
+
+.toggle-label {
+  display: inline-block;
+  cursor: pointer;
+  padding-left: $item-padding-lr + 0rem;
+  padding-right: $item-padding-lr + 0rem;
+
+  &.disabled {
+    color: #e6e6e6;
+    cursor: not-allowed;
+  }
+}
+
+.toggle-group {
+  padding-bottom: $item-padding-tb + 0rem;
+
+  &:last-of-type {
+    padding-bottom: 0px;
+  }
+}
+
+.form-input-prepend,
+.form-input-append {
+  display: flex;
+  align-items: center;
+  padding: $item-padding;
+  border: 1px solid #e6e6e6;
+  background-color: #f7f7f7;
+}
+
+.form-input-prepend {
+  border-right: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  z-index: 2;
+
+  & + .form-input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:focus {
+      z-index: 3;
+    }
+  }
+}
+
+.form-input-append {
+  border-left: none;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  z-index: 2;
+}
+
+.input-container .form-input:not(:last-child) {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+
+  &:focus {
+    z-index: 3;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $container-padding-tb + 0rem;
+}
+
+.required {
+  color: $error-color;
+}
+
+.error-message, .loading-message {
+  padding-right: $item-padding-lr + 0rem;
+  padding-top: $item-padding-tb + 0rem;
+  display: block;
+  font-size: .75rem;
+}
+
+.loading-message {
+  color: $success-color;
+}
+
+.error-message {
+  color: $error-color;
+}
+
+.form-error {
+  border-color: $error-color !important;
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25) !important;
+  }
+}
+
+// Toggle specific
+.checkbox,
+.switch,
+.radio {
+  &:focus + .form-error:before {
+    border-color: $error-color !important;
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25) !important;
+  }
+
+  & + .form-error {
+    &:before {
+      border-color: $error-color !important;
+    }
+  }
+}
+
+// Select specific
+.form-error {
+  .select-btn {
+    border-color: $error-color !important;
+  }
+
+  .select-btn.list-open, .select-btn:focus {
+    border-color: $error-color !important;
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25) !important;
+  } 
+} 
+
+// Datepicker specific
+.datepicker-container .form-error.calendar-open {
+  border-color: $error-color !important;
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25) !important;
+}
+
+// Fontawesome specific
+svg.svg-inline--fa.fa-fw {
+  width: 1rem;
+}
+
+// Loading specific
+.input-container {
+  .lds-ring {
+    position: absolute;
+    right: $item-padding-lr + 0rem;
+    top: $item-padding-tb + 0rem + .125rem;
+  }
+
+  .lds-ring.with-append {
+    right: $item-padding-lr + 0rem + 3.0625rem;
+  }
+}

@@ -1,0 +1,154 @@
+@import '../../../scss/_Import.scss';
+
+.datepicker-container {
+  position: relative;
+
+  svg {
+    fill: $font-color;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .form-input.calendar-open {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    z-index: 3;
+
+    & + .select-chevron > svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .date-input {
+    position: relative;
+  }
+}
+
+.calendar-container {
+  position: absolute;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  padding: .75rem 1rem;
+  width: 100%;
+  min-width: 18.75rem;
+  background-color: #fff;
+  z-index: 9;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  overflow: auto;
+}
+
+.calendar-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: .5rem;
+
+  button {
+    border: 0;
+    padding: .5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 1rem;
+
+    &:hover {
+      background-color: #e6e6e6;
+    }
+
+    &:last-of-type {
+      margin-right: 0rem;
+    }
+  }
+}
+
+.calendar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: .5rem;
+
+  button {
+    padding: .2rem;
+    cursor: pointer;
+
+    > svg {
+      fill: $font-color;
+    }
+  }
+
+  button:hover {
+    background-color: #e6e6e6;
+  }
+
+  .next-month {
+    width: 30px;
+    transform: rotate(-90deg);
+  }
+
+  .prev-month {
+    width: 30px;
+    transform: rotate(90deg);
+  }
+}
+
+.calendar-actions {
+  button {
+    display: block;
+  }
+}
+
+.month-table {
+  width: 100%;
+
+  th {
+    font-weight: normal;
+    color: #cdcdcd;
+  }
+
+  &:focus {
+    outline: dotted;
+  }
+
+  td {
+    vertical-align: middle;
+    text-align: center;
+    padding: .5rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.calendar-day:hover, 
+    &.selected,
+    &.calendar-day:focus {
+      background-color: #e6e6e6;
+      outline: none;
+    }
+
+    &.today {
+      border: 2px solid #e6e6e6;
+    }
+  }
+}
+
+.year-container {
+  text-align: center;
+  max-height: 250px;
+  overflow: auto;
+
+  li {
+    padding: 1rem;
+    cursor: pointer;
+    transition: font-size ease-in-out .2s;
+    outline: none;
+  }
+
+  .this-year, li:hover {
+    font-size: 1.5rem;
+    border-radius: 4px;
+  }
+
+  li:hover,
+  li:focus {
+    background-color: #e6e6e6;
+    outline: none;
+  }
+}

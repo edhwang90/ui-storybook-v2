@@ -1,0 +1,148 @@
+@import './_Import.scss';
+
+.btn {
+  display: inline-block;
+  padding: $item-padding;
+  font-size: 1rem;
+  outline: none;
+  border: .0625rem solid #e6e6e6;
+  border-radius: .25rem;
+  background-color: #e6e6e6;
+  color: $font-color;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 
+    border-color ease-in-out .2s,
+    box-shadow ease-in-out .2s;
+
+  &:hover {
+    background-color: darken(#e6e6e6, 10%);
+    border-color: darken(#e6e6e6, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(#e6e6e6,.5)
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #f7f7f7 !important;
+    color: #4d4d4d !important;
+    border-color: #e6e6e6 !important;
+  }
+}
+
+.btn.is-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  color: $primary-color-font;
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($primary-color,.5)
+  }
+}
+
+.btn.is-alternate {
+  background-color: #ffffff;
+  color: $font-color;
+  border-color: #e6e6e6;
+
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+    border-color: darken(#ffffff, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(#e6e6e6,.5)
+  }
+}
+
+.btn.is-clear {
+  background-color: transparent;
+  color: $font-color;
+  border: 0;
+
+  &:hover {
+    background-color: darken(#ffffff, 10%);
+    border-color: darken(#ffffff, 10%);
+  }
+}
+
+.btn.is-danger {
+  background-color: $error-color;
+  border-color: $error-color;
+  color: #ffffff;
+
+  &:hover {
+    background-color: darken($error-color, 10%);
+    border-color: darken($error-color, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($error-color,.5)
+  }
+}
+
+.btn.is-warning {
+  background-color: $warning-color;
+  border-color: $warning-color;
+  color: #4d4d4d;
+
+  &:hover {
+    background-color: darken($warning-color, 10%);
+    border-color: darken($warning-color, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($warning-color,.5)
+  }
+}
+
+.btn.is-success {
+  background-color: $success-color;
+  border-color: $success-color;
+  color: #ffffff;
+
+  &:hover {
+    background-color: darken($success-color, 10%);
+    border-color: darken($success-color, 10%);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($success-color,.5)
+  }
+}
+
+.btn-group {
+  margin-bottom: $container-padding-tb + 0rem;
+  
+  .btn {
+    margin-right: 1rem;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: $link-color;
+  padding: $item-padding;
+  display: inline-block;
+  outline: none;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+
+  &.inline {
+    padding: 0;
+  }
+}
