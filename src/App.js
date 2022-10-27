@@ -5,6 +5,7 @@ import { ProgressBar } from './components/ProgressBar';
 import { Toaster } from './components/Toaster';
 import { DialogueBox } from './components/DialogueBox'
 import { checkObjEq, filterObjectArray } from './Utils';
+import { ScrollSpyNav } from './components/ScrollSpyNav/ScrollSpyNav';
 
 import './App.scss';
 
@@ -38,10 +39,10 @@ export const App = () => {
   const checkObjs = () => {
     
     const obj1 = {
-      name: 'ed',
+      name: '1',
       experience: 4,
       team: {
-        availability: false,
+        availability: true,
         name: 'team1'
       }
     }
@@ -162,6 +163,15 @@ export const App = () => {
             this is a n error with description.
           </div>
         </Toaster> */}
+      </div>
+      <div className="row">
+        <div className="col">
+          <ScrollSpyNav selector="section">
+            <section id="section1" data-nav-title="Section 1" data-scrollspy></section>
+            <section id="section2" data-nav-title="Section 2" data-scrollspy></section>
+            <section id="section3" data-nav-title="Section 3" data-scrollspy></section>
+          </ScrollSpyNav>
+        </div>
       </div>
     </div>
   );

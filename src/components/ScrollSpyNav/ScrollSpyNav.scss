@@ -1,0 +1,39 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.sticky-container {
+  display: block;
+}
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 5px 15px;
+}
+
+a {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #d3d3d3a8;
+}
+
+.active {
+  background-color: #d3d3d369;
+  border-bottom: 3px solid #1818ff75;
+  font-weight: bolder;
+}
