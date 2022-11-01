@@ -78,7 +78,7 @@ describe('Validate', () => {
       result.current.submit();
     })
 
-    await wait(() => {
+    await act(() => {
       return !result.current.form.isLoading;
     });
 
