@@ -92,10 +92,10 @@ export const App = () => {
   const Page3 = () => (<h1>Page 3</h1>);
 
   return (
-    //<ExampleForm shouldValidateBlur={true}></ExampleForm>
+    
     <div className="sandbox">
       <h1>Sandbox</h1>
-
+      <ExampleForm shouldValidateBlur={true}></ExampleForm>
       {/* <OutsideClickHandler onOutsideClick={() => { console.log('test') }}>
         <p>
           asdfasdfasdfasdf
