@@ -486,7 +486,7 @@ export const Select = (props) => {
               const flatGroupOptions = filteredGroupList(group);
               return (
                 <React.Fragment key={i}>
-                  {groupRowUI(group)}
+                  {groupRowUI(group, i)}
                   {
                     <ul onKeyDown={e => traverseSelect(e)}>
                       {
